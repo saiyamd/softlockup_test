@@ -33,7 +33,7 @@ static int softlockup_init(void)
     val = 1;
     spin_lock_init(&spinlock);
     task0 = kthread_run(&task,(void *)val,"softlockup_thread");
-    set_cpus_allowed(task0, *cpumask_of(0));
+    set_cpus_allowed_ptr(task0, cpumask_of(0));
 
     return 0;
 }
